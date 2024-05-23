@@ -146,12 +146,13 @@ MenuRegistry.appendMenuItems([
 	}
 ]);
 
-// Previous states for side bar and auxiliary bar
-let _previousAuxiliaryBarWidth: number | null = null;
-let _previousSideBarVisibility: boolean | null = null;
 export class ResizeAuxiliaryBarWidthAction extends Action2 {
 	static readonly ID = 'workbench.action.resizeAuxiliaryBarWidth';
 	static readonly LABEL = localize('resizeAuxiliaryBarWidth', "Resize Auxiliary Bar Width");
+
+	// Tracking the previous width of the aux bar and visibility of the left side bar
+	static _previousAuxiliaryBarWidth: number | null = null;
+	static _previousSideBarVisibility: boolean | null = null;
 
 	constructor() {
 		super({
@@ -192,9 +193,9 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 		}
 
 		// Save the current width as the previous width if it has not been saved yet
-		if (_previousAuxiliaryBarWidth === null) {
-			_previousAuxiliaryBarWidth = auxBarDimensions.width;
-			_previousSideBarVisibility = layoutService.isVisible(Parts.SIDEBAR_PART);
+		if (ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth === null) {
+			ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth = auxBarDimensions.width;
+			ResizeAuxiliaryBarWidthAction._previousSideBarVisibility = layoutService.isVisible(Parts.SIDEBAR_PART);
 		}
 
 		// Set a minimum width for the auxiliary bar, unless its greater than a % of the window width
@@ -204,21 +205,21 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 		// 70% of the window width is the maximum width
 		const maxWidth = (0.7 * mainWindow.innerWidth);
 		// The minimum width is the maximum width, unless it is less than the max of (previous width * 2) or the predetermined minimum width
-		const minWidth = Math.min(maxWidth, Math.max(_previousAuxiliaryBarWidth * 2, PSEUDO_MINIMUM_AUX_BAR_WIDTH));
+		const minWidth = Math.min(maxWidth, Math.max(ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth * 2, PSEUDO_MINIMUM_AUX_BAR_WIDTH));
 
 		// If the current width is less than or equal to the previous width, expand the auxiliary bar
-		if (auxBarDimensions.width <= _previousAuxiliaryBarWidth) {
+		if (auxBarDimensions.width <= ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth) {
 			// Expand to the calculated minWidth
 			layoutService.resizePart(Parts.AUXILIARYBAR_PART, (minWidth - auxBarDimensions.width), 0);
 			// Hide the left side bar if it was previously visible
 			layoutService.setPartHidden(true, Parts.SIDEBAR_PART);
 		} else {
 			// If the current width is greater than the previous width, collapse the auxiliary bar back to the previous width (initial width)
-			layoutService.resizePart(Parts.AUXILIARYBAR_PART, (auxBarDimensions.width - _previousAuxiliaryBarWidth) * -1, 0);
+			layoutService.resizePart(Parts.AUXILIARYBAR_PART, (auxBarDimensions.width - ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth) * -1, 0);
 			// Restore the left side bar to the user's previous state
-			_previousSideBarVisibility ? layoutService.setPartHidden(false, Parts.SIDEBAR_PART) : layoutService.setPartHidden(true, Parts.SIDEBAR_PART);
+			ResizeAuxiliaryBarWidthAction._previousSideBarVisibility ? layoutService.setPartHidden(false, Parts.SIDEBAR_PART) : layoutService.setPartHidden(true, Parts.SIDEBAR_PART);
 			// Reset the previous width to null after collapsing
-			_previousAuxiliaryBarWidth = null;
+			ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth = null;
 		}
 
 		return Promise.resolve();
