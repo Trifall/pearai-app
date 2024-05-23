@@ -162,9 +162,9 @@ If the build step fails, or if the built version fails to run (see next section)
 
 #### Errors and Warnings
 
-Errors and warnings will show in the console while developing VS Code. If you use VS Code to develop VS Code, errors and warnings are shown in the status bar at the bottom left of the editor. You can view the error list using `View | Errors and Warnings` or pressing <kbd>Ctrl</kbd>+<kbd>P</kbd> and then <kbd>!</kbd> (<kbd>CMD</kbd>+<kbd>P</kbd> and <kbd>!</kbd> on macOS).
+Errors and warnings will show in the console while developing the PearAI App. If you use VS Code to develop the PearAI App, errors and warnings are shown in the status bar at the bottom left of the editor. You can view the error list using `View | Errors and Warnings` or pressing <kbd>Ctrl</kbd>+<kbd>P</kbd> and then <kbd>!</kbd> (<kbd>CMD</kbd>+<kbd>P</kbd> and <kbd>!</kbd> on macOS).
 
-👉 **Tip!** You don't need to stop and restart the development version of VS Code after each change. You can just execute `Reload Window` from the command palette. We like to assign the keyboard shortcut <kbd>Ctrl</kbd>+<kbd>R</kbd> (<kbd>CMD</kbd>+<kbd>R</kbd> on macOS) to this command.
+👉 **Tip!** You don't need to stop and restart the development version of the PearAI App after each change. You can just execute `Reload Window` from the command palette. We like to assign the keyboard shortcut <kbd>Ctrl</kbd>+<kbd>R</kbd> (<kbd>CMD</kbd>+<kbd>R</kbd> on macOS) to this command.
 
 ### Run
 
@@ -226,9 +226,9 @@ UI in the browser, extensions run in code server (NodeJS):
 .\scripts\code-server.bat --launch
 ```
 
-You can identify the development version of VS Code ("Code - OSS") by the following icon in the Dock or Taskbar:
+You can identify the development version of the PearAI App ("Code - OSS") by the following icon in the Dock or Taskbar:
 
-[![VS Code default icon](https://i.imgur.com/D2CeX0y.png)](https://i.imgur.com/D2CeX0y.png)
+[![PearAI App default icon](https://i.imgur.com/D2CeX0y.png)](https://i.imgur.com/D2CeX0y.png)
 
 ### Debugging
 
