@@ -96,12 +96,12 @@ To fix this error open Visual Studio Installer, add the following components cor
 
 ### Development container
 
-Alternatively, you can avoid local dependency installation as this repository includes a Visual Studio Code Remote - Containers / Codespaces [development container](https://github.com/microsoft/vscode/tree/main/.devcontainer).
+Alternatively, you can avoid local dependency installation as this repository includes a Visual Studio Code Remote - Containers / Codespaces [development container](https://github.com/trypear/pearai-app/tree/main/.devcontainer).
 
 - For [Remote - Containers](https://aka.ms/vscode-remote/download/containers), use the **Remote-Containers: Open Repository in Container...** command which creates a Docker volume for better disk I/O on macOS and Windows.
 - For Codespaces, install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension in VS Code, and use the **Codespaces: Create New Codespace** command.
 
-Docker / the Codespace should have at least **4 Cores and 6 GB of RAM (8 GB recommended)** to run the full build. See the [development container README](https://github.com/microsoft/vscode/blob/main/.devcontainer/README.md) for more information.
+Docker / the Codespace should have at least **4 Cores and 6 GB of RAM (8 GB recommended)** to run the full build. See the [development container README](https://github.com/trypear/pearai-app/blob/main/.devcontainer/README.md) for more information.
 
 If you'd like to contribute to the list of available development containers in the Remote - Containers extension, you can check out the [Contributing documentation](https://github.com/microsoft/vscode-dev-containers/blob/master/CONTRIBUTING.md) in the vscode-dev-containers repo.
 
@@ -255,13 +255,13 @@ The **search** process can be debugged, but must first be started. Before attemp
 
 ### Automated Testing
 
-Run the unit tests directly from a terminal by running `./scripts/test.sh` from the `pearai-app` folder (`scripts\test` on Windows). The [test README](https://github.com/Microsoft/vscode/blob/main/test/README.md) has complete details on how to run and debug tests, as well as how to produce coverage reports.
+Run the unit tests directly from a terminal by running `./scripts/test.sh` from the `pearai-app` folder (`scripts\test` on Windows). The [test README](https://github.com/trypear/pearai-app/blob/main/test/README.md) has complete details on how to run and debug tests, as well as how to produce coverage reports.
 
-We also have automated UI tests. The [smoke test README](https://github.com/Microsoft/vscode/blob/main/test/smoke/README.md) has all the details.
+We also have automated UI tests. The [smoke test README](https://github.com/trypear/pearai-app/blob/main/test/smoke/README.md) has all the details.
 
 ### Unit Testing
 
-Run the tests directly from a terminal by running `./scripts/test.sh` from the `pearai-app` folder (`scripts\test` on Windows). The [test README](https://github.com/Microsoft/vscode/blob/main/test/README.md) has complete details on how to run and debug tests, as well as how to produce coverage reports.
+Run the tests directly from a terminal by running `./scripts/test.sh` from the `pearai-app` folder (`scripts\test` on Windows). The [test README](https://github.com/trypear/pearai-app/blob/main/test/README.md) has complete details on how to run and debug tests, as well as how to produce coverage reports.
 
 ### Linting
 
