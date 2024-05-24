@@ -67,24 +67,24 @@ export class ChatController {
 
 	async expandPreviousConversation() {
 		try {
-			// get current conversation id
+			// Get current conversation id
 			const conversationIdNumber = parseInt(this.chatModel.selectedConversationId?.split("-")[1] ?? "");
 			if (isNaN(conversationIdNumber)) return;
 
-			// validate if previous conversation exists
+			// Validate if previous conversation exists
 			const previousConversationId = `conversation-${conversationIdNumber - 1}`;
 			if (!this.chatModel.getConversationById(previousConversationId)) return;
 
-			// get total number of conversations
+			// Get total number of conversations
 			const numOfConversations = this.chatModel.conversations.length;
-			// if previous conversation is already selected, then select the latest conversation
+			// If previous conversation is already selected, then select the latest conversation
 			if (conversationIdNumber !== numOfConversations - 1) {
 				this.chatModel.selectedConversationId = `conversation-${numOfConversations - 1}`;
 				await this.updateChatPanel();
 				return;
 			}
 
-			// select previous conversation
+			// Select previous conversation
 			this.chatModel.selectedConversationId = previousConversationId;
 			await this.updateChatPanel();
 		} catch (error) {
