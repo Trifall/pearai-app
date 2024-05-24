@@ -251,6 +251,10 @@
         "key": "Alt+l"
       },
       {
+        "command": "pearai.expandPreviousConversation",
+        "key": "Ctrl+0"
+      },
+      {
         "command": "pearai.editCode",
         "when": "isMac",
         "key": "Ctrl+Cmd+e"

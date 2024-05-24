@@ -74,6 +74,9 @@ export const activate = async (context: vscode.ExtensionContext) => {
 			await apiKeyManager.clearOpenAIApiKey();
 			vscode.window.showInformationMessage("OpenAI API key cleared.");
 		}),
+		vscode.commands.registerCommand("pearai.expandPreviousConversation", async () => {
+			await chatController.expandPreviousConversation();
+		}),
 
 		vscode.commands.registerCommand("pearai.startConversation", (templateId) =>
 			chatController.createConversation(templateId)
