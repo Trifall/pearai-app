@@ -148,7 +148,7 @@ MenuRegistry.appendMenuItems([
 
 export class ResizeAuxiliaryBarWidthAction extends Action2 {
 	static readonly ID = 'workbench.action.resizeAuxiliaryBarWidth';
-	static readonly LABEL = localize('resizeAuxiliaryBarWidth', "Resize Auxiliary Bar Width");
+	static readonly LABEL = localize2('resizeAuxiliaryBarWidth', "Resize Auxiliary Bar Width");
 
 	// Tracking the previous width of the aux bar and visibility of the left side bar
 	static _previousAuxiliaryBarWidth: number | null = null;
@@ -157,7 +157,7 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 	constructor() {
 		super({
 			id: ResizeAuxiliaryBarWidthAction.ID,
-			title: localize2('resizeAuxiliaryBarWidth', "Resize Auxiliary Bar Width"),
+			title: ResizeAuxiliaryBarWidthAction.LABEL,
 			category: Categories.View,
 			f1: true,
 			keybinding: {
@@ -176,11 +176,11 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 		});
 	}
 
-	run(accessor: ServicesAccessor): Promise<void> {
+	run(accessor: ServicesAccessor): void {
 		const layoutService = accessor.get(IWorkbenchLayoutService);
 		// Check if the main window is available
 		if (!mainWindow) {
-			return Promise.resolve();
+			return;
 		}
 
 		const auxBarPart = layoutService.getContainer(mainWindow, Parts.AUXILIARYBAR_PART);
@@ -189,7 +189,7 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 
 		// If the auxiliary bar is not visible, or the dimensions are null, return
 		if (!auxBarDimensions || !isAuxiliaryBarVisible) {
-			return Promise.resolve();
+			return;
 		}
 
 		// Save the current width as the previous width if it has not been saved yet
@@ -222,7 +222,7 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 			ResizeAuxiliaryBarWidthAction._previousAuxiliaryBarWidth = null;
 		}
 
-		return Promise.resolve();
+		return;
 	}
 }
 
