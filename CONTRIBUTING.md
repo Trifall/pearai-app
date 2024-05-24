@@ -34,8 +34,6 @@ The extension can be run in two ways:
 
 RECOMMENDED: Internally within the main PearAI application (which is a VSCode fork): <https://github.com/trypear/pearai/>. This guide is for running it internally.
 
-Standalone as an extension. For running it standalone, you will want to `cd` into `extensions/pearai-extension` and visit [Contributing to pearai-extension](extensions/pearai-extension/CONTRIBUTING.md)
-
 After cloning and building the repo, check out the [issues list](https://github.com/trypear/pearai-app/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue). Issues labeled [`help wanted`](https://github.com/trypear/pearai-app/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) are good issues to submit a PR for. Issues labeled [`good first issue`](https://github.com/trypear/pearai-app/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) are great candidates to pick up if you are in the code for the first time. If you are contributing significant changes, or if the issue is already assigned to a specific month milestone, please discuss with the assignee of the issue first before starting to work on the issue.
 
 ## Prerequisites
@@ -148,7 +146,7 @@ yarn
 
 Then you have two options:
 
-- If you want to build from inside VS Code, you can open the `pearai-app` folder and start the build task with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (<kbd>CMD</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> on macOS). The build task will stay running in the background even if you close the app.
+- If you want to build from inside VS Code, you can open the `pearai-app` folder and start the build task with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (<kbd>CMD</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> on macOS). The build task will stay running in the background even if you close the app. If you happen to close VS Code and open it again, just resume the build by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (<kbd>CMD</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>) again. You can kill it by running the `Kill Build VS Code` task or pressing <kbd>Ctrl</kbd>+<kbd>D</kbd> in the task terminal.
 - If you want to build from a terminal, run `yarn watch`. This will run both the core watch task and watch-extension tasks in a single terminal.
 
 The incremental builder will do an initial full build and will display a message that includes the phrase "Finished compilation" once the initial build is complete. The builder will watch for file changes and compile those changes incrementally, giving you a fast, iterative coding experience.
@@ -168,7 +166,7 @@ Errors and warnings will show in the console while developing the PearAI App. If
 
 ### Run
 
-To test the changes, you launch a development version of the PearAI-App on the workspace `pearai-app`, which you are currently editing.
+To test the changes, you launch a development version of the PearAI App on the workspace `pearai-app`, which you are currently editing.
 
 To test changes with a remote, use the "TestResolver" in your Code - OSS window which creates a fake remote window. Search Command Palette for `TestResolver`. More information is at <https://github.com/microsoft/vscode/issues/162874#issuecomment-1271774905>.
 
@@ -226,9 +224,7 @@ UI in the browser, extensions run in code server (NodeJS):
 .\scripts\code-server.bat --launch
 ```
 
-You can identify the development version of the PearAI App ("Code - OSS") by the following icon in the Dock or Taskbar:
-
-[![PearAI App default icon](https://i.imgur.com/D2CeX0y.png)](https://i.imgur.com/D2CeX0y.png)
+You can identify the development version of the PearAI App by finding the Pear logo in your Dock or Taskbar.
 
 ### Debugging
 
@@ -236,7 +232,7 @@ VS Code has a multi-process architecture and your code is executed in different 
 
 The **render** process runs the UI code inside the Shell window. To debug code running in the **render** you can either use VS Code or the Chrome Developer Tools.
 
-#### Using the PearAI-App
+#### Using the PearAI App
 
 - Open the `pearai-app` repository folder
 
@@ -308,7 +304,7 @@ Pull requests that fix spell check errors in **translatable strings** (strings i
 
 ## Packaging
 
-PearAI-App can be packaged for the following platforms: `win32-ia32 | win32-x64 | darwin-x64 | darwin-arm64 | linux-ia32 | linux-x64 | linux-arm`
+The PearAI App can be packaged for the following platforms: `win32-ia32 | win32-x64 | darwin-x64 | darwin-arm64 | linux-ia32 | linux-x64 | linux-arm`
 
 These `gulp` tasks are available:
 
